@@ -31,6 +31,8 @@ h1 {
     font-size: 2.6rem;
     margin: 0;
     margin-bottom: 5px;
+    word-spacing: 0;
+    text-align: start;
 }
 
 h2 {
@@ -55,23 +57,25 @@ small, li {
 
 /* Navigation Bar */
 .navbar {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
 }
 
-.navbar__title {
-    font-family: var(--header);
-    font-size: 1.3rem;
+.navbar__title img {
+    width: 150px;
+    height: 150px;
+    margin-right: 1em;
 }
 
 .navbar__menu {
     font-family: var(--body);
-    font-size: 1.1rem;
-    text-align: right;
+    font-size: 1.5rem;
+    text-align: center;
+    align-self: center;
 }
 
-.navbar__title > a, .navbar__menu > a {
+.navbar__menu > a {
     color: var(--text);
     text-decoration: none;
 }
@@ -80,7 +84,7 @@ small, li {
     margin: 0 10px;
 }
 
-.navbar__title > a:hover, .navbar__menu > a:hover, .navbar__menu > a:focus {
+.navbar__menu > a:hover, .navbar__menu > a:focus {
     text-decoration: underline var(--underline);
     text-decoration-thickness: 2px;
     text-underline-offset: 6px;
@@ -229,24 +233,28 @@ footer {
     padding: 0;
 }
 
+.contact_links {
+    justify-content: center;
+    align-items: center;
+}
+
 .icon__btn {
     display: inline-block;
-    padding: 0 0.5rem;
+    margin: 0 0.75rem;
 }
 
 .icon__link {
     display: flex;
-    padding: 10px;
-    height: 20px;
-    width: 20px;
+    padding: 20px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
-    border: 2px solid #fdebf3;
+    border: .15em solid #fdebf3;
 }
 
 .icon__link:hover {
     border-color: var(--text-link);
 }
-
 
 .git-icon {
     content: url("/github-mark-white.svg");
@@ -258,6 +266,12 @@ footer {
 
 .linked-in {
     content: url("/li-in-white.png");
+}
+
+.phone-icon {
+    content: url("/telephone-free.png");
+    height: 100%;
+    width: 100%;
 }
 
 /* 404 */
@@ -289,9 +303,9 @@ html.light {
     color: var(--text-light);
 }
 
-.light .navbar__title > a {
+/* .light .navbar__title > a {
     color: var(--text-light);
-}
+} */
 
 .light .navbar__menu > a {
     color: var(--text-light);
@@ -331,6 +345,10 @@ html.light {
 
 .light .linked-in {
     content: url("/li-in.png");
+}
+
+.light .phone-icon {
+    content: url("/telephone.svg");
 }
 
 .light .badge__link {
