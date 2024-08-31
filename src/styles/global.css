@@ -1,4 +1,10 @@
 /* Global styles */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --background: #1e1e2e; 
     --background-light: #fdebf3;
@@ -8,18 +14,23 @@
     --text-link: #78c2ad;
     --underline: #375a7f;
     --header: 'Pacifico', cursive;
-    --body: 'Josefin Sans', sans-serif; 
+    --body: 'Josefin Sans', sans-serif;
 }
 
 html {
     background-color: var(--background);
     color: var(--text);
+    scroll-behavior: smooth;
+    scroll-padding-top: 19vh;
 }
 
 body {
-    max-width: 540px;
-    margin: 0 auto;
-    text-align: justify;
+    text-align: center;
+    width: 98vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1, h2 {
@@ -28,11 +39,9 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 2.6rem;
-    margin: 0;
+    font-size: 2.9rem;
     margin-bottom: 5px;
     word-spacing: 0;
-    text-align: start;
 }
 
 h2 {
@@ -40,12 +49,13 @@ h2 {
     text-decoration-thickness: 4px;
     text-underline-offset: 6px;
     font-size: 2.1rem;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
 }
 
+/* paragraphs */
 p {
     font-family: var(--body);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     hyphens: auto;
     line-height: 1.5;
     text-indent: 1rem;
@@ -57,22 +67,33 @@ small, li {
 
 /* Navigation Bar */
 .navbar {
+    width: 100%;
     display: flex;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 1rem;
+    flex-direction: row;
+    margin: 0.5rem auto 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    justify-content:center;
+    align-items: center;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    
 }
 
 .navbar__title img {
-    width: 150px;
-    height: 150px;
-    margin-right: 1em;
+    width: 100px;
+    height: 100px;
+    margin: 0 1em;
 }
 
 .navbar__menu {
     font-family: var(--body);
     font-size: 1.5rem;
-    text-align: center;
-    align-self: center;
+    /* text-align: center; */
+    justify-content: space-between;
+    /* align-items: center; */
 }
 
 .navbar__menu > a {
@@ -80,8 +101,8 @@ small, li {
     text-decoration: none;
 }
 
-.navbar__menu > a {
-    margin: 0 10px;
+.navbar__menu a {
+    margin: 1em 15px;
 }
 
 .navbar__menu > a:hover, .navbar__menu > a:focus {
@@ -90,10 +111,16 @@ small, li {
     text-underline-offset: 6px;
 }
 
+/* heroheader */
+.heroheader {
+    margin: 10rem auto 5em;
+}
+
 /* Gifs */
 .gif {
-    margin: 20px 0 0 0;
-    text-align: center;
+    /* padding-top: 100px; */
+    margin: auto auto;
+    height:200px;
 }
 
 /* Badge */
@@ -103,7 +130,7 @@ small, li {
     border-radius: 6px;
     font-family: var(--body);
     font-weight: 600;
-    font-size: .85rem;
+    font-size: 1.35rem;
     padding: 0.3em 0.6em 0.2em;
 }
 
@@ -207,10 +234,20 @@ small, li {
     margin: 8px 4px;
 }
 
-/* Items */
-.center {
-    text-align: center;
+/* interests */
+.interests{
+    align-items: center;
 }
+
+.interests p{
+    width: 80vw;
+    align-items: center;
+}
+
+/* Items */
+/* .center {
+    text-align: center;
+} */
 
 .pro-img {
     border-radius: 16px;
@@ -233,9 +270,14 @@ footer {
     padding: 0;
 }
 
+.contact-list {
+    margin: 1.5em auto;
+}
+
 .contact_links {
     justify-content: center;
     align-items: center;
+    margin: 2.5em auto;
 }
 
 .icon__btn {
@@ -356,25 +398,46 @@ html.light {
 }
 
 /* Media Query */
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 700px) {
     body {
-        width: 350px;
+        width: 99vw;
+    }
+
+    .heroheader {
+        margin: 10rem 0 0 0;
     }
 
     .navbar {
-        display: initial;
+        margin: 10px auto;
     }
 
-    .navbar__title {
-        text-align: center;
+    .navbar__title img {
+        display: none;
     }
 
     .navbar__menu {
+        margin: 2.5em auto;
         text-align: center;
     }
 
     .navbar__menu > a {
-        margin: 0 11px;
+        margin: 2px 7px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        width: 99vw;
+    }
+
+    .navbar__menu {
+        margin: 2.5em auto;
+        text-align: center;
+    }
+
+    .navbar__menu > a {
+        margin: 0 7px;
     }
 
     .skills__img {
