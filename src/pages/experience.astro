@@ -6,10 +6,10 @@ const allProjects = await getCollection("projects");
 const pageTitle = "Experience";
 ---
 <Layout pageTitle={pageTitle}>
-    <div class="gif">
+    <div class="gif-exp">
         <img width="300" height="259" alt="RaccoonLaptopGif" src="/laptop.webp"/>
     </div>
-    <h2>Projects</h2>
+    <h2>Experience</h2>
     <ul role="list" class="link-card-grid">
         {allProjects.map((card) => <Card 
             url={`/projects/${card.slug}/`} 
