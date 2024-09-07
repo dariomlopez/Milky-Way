@@ -129,7 +129,7 @@ small, li {
 }
 
 .gif-exp {
-    margin: 6rem auto 0;
+    margin: 4rem auto 0;
 }
 
 /* Badge */
@@ -192,13 +192,13 @@ small, li {
 .card__title {
     margin: 0;
     font-family: var(--body);
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     font-weight: normal;
     text-align: center;
 }
 
 .card__txt {
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1.5;
     text-indent: 0;
     text-align: center;
@@ -209,9 +209,23 @@ small, li {
     transform: scale(1.05);
 }
 
-.link-card-grid {
+/* .link-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(27ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+} */
+
+.link-card-exp {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+}
+
+.link-card-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1rem;
     padding: 0;
 }

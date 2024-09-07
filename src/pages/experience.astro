@@ -10,14 +10,28 @@ const pageTitle = "Experience";
         <img width="300" height="259" alt="RaccoonLaptopGif" src="/laptop.webp"/>
     </div>
     <h2>Experience</h2>
-    <ul role="list" class="link-card-grid">
-        {allProjects.map((card) => <Card 
+    <ul role="list" class="link-card-exp">
+        <!-- {allProjects.map((card) => <Card 
             url={`/projects/${card.slug}/`} 
             image={card.data.image.url} 
             title={card.data.title} 
             body={card.data.description}
             stack={card.data.stack}
-        />)}
+        />)} -->
+        <Card
+            url="https://medium.com/"
+            image="/blog-post.webp"
+            title="Blog 1"
+            body="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci"
+            stack="Python, CSS, Javascript, una, frase, muy, larga, con, comas"
+        />
+        <Card
+            url="https://medium.com/"
+            image="/blog-post.webp"
+            title="Cybersecurity Technician || Final course project"
+            body="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci"
+            stack="Python, CSS, Javascript, una, frase, muy, larga, con, comas"
+        />
     </ul>
 </Layout>
 

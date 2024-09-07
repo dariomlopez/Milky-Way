@@ -1,5 +1,5 @@
 ---
-title: 'Project 1'
+title: 'Back-End developer at VASS'
 description: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci'
 image:
     url: '/GitHub.webp'
@@ -11,7 +11,7 @@ worksImage2:
     url: '/image-2.webp'
     alt: 'second image of your project.'
 platform: Web
-stack: Astro, JavaScript
+stack: Una altra cosa, JavaScript
 website: https://astro-milky-way.netlify.app/
 github: https://github.com/ttomczak3/Milky-Way
 ---

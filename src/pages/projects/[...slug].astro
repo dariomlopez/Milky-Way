@@ -5,15 +5,30 @@ import MarkdownWorksLayout from '../../layouts/MarkdownWorksLayout.astro';
 export async function getStaticPaths() {
     const projectEntries = await getCollection('projects');
     return projectEntries.map(entry => ({
-        params: { slug: entry.slug }, props: { entry },
+        params: { slug: entry.slug }, 
+        props: { entry },
   }));
 }
 
-const { entry } = Astro.props;
+type ProjectEntry = {
+  slug: string;
+  data: {
+    title: string;
+    description: string;
+    image: { url: string; alt: string };
+    platform: string;
+    stack: string;
+    website: string;
+    github: string;
+  };
+  render: () => Promise<{ Content: any }>; // Ensure the render method returns Content
+};
+
+const { entry }: { entry: ProjectEntry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<MarkdownWorksLayout frontmatter={entry.data}>
+<MarkdownWorksLayout frontmatter={entry["data"]}>
     <Content />
 </MarkdownWorksLayout>
 

@@ -1,5 +1,5 @@
 ---
-title: 'Project 2'
+title: 'Cybersecurity Technician || Final course project'
 description: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci'
 image:
     url: '/GitHub.webp'
