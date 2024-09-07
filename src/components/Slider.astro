@@ -1,0 +1,151 @@
+---
+export interface Props {
+  id: string;
+  title: string;
+  slides: {
+    title: string;
+    content: string;
+  }[];
+}
+
+const { id, title, slides } = Astro.props;
+---
+
+<style>
+  .div-title {
+    /* justify-content: center; 
+    align-items: center; */
+    margin: 0 0 20px;
+    background: var(--text-bg-sec);
+    border-radius: 26px;
+    padding: 2.5px 0;
+    text-align: center;
+    font-size: 1.25em;
+    /* max-width: fit-content; */
+  }
+
+  /* -------------------------------------------------------------- */
+  /* Basic styling for the slider */
+  .slider {
+    position: relative;
+    width: 100%;
+    max-width: 80vw; /* Adjust as needed */
+    margin: auto;
+    overflow: hidden;
+    color: var(--main-bg);
+  }
+
+  .slides {
+    display: flex;
+    transition: all 0.5s ease;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Navigation buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    /* margin-top: -10px; */
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(245, 186, 186, 0.5);
+  }
+
+  .next {
+    right: 0;
+    /* border-radius: 3px 0 0 3px; */
+  }
+
+  .prev:hover, .next:hover {
+    background-color: rgba(162, 226, 248, 0.8);
+    transition: 0.9s ease;
+    transform: scale(1.15);
+  }
+
+  /* Additional styling for the content inside slides */
+  .slide h2 {
+    display: contents;
+    background: var(--text-bg-sec);
+    text-align: center;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 2.2em;
+    /* width: 70vw; */
+  }
+
+  .slide h3 {
+    font-size: 1.7em;
+    margin: 0;
+  }
+
+  .slide h4 {
+    margin: 10px 0;
+  }
+
+  .slide p {
+    font-size: 1.5em;
+    color: var(--text-main);
+}
+
+</style>
+
+<div id={id}>
+  <div>
+    <h2>{title}</h2>
+  </div>
+  <div class="slider">
+    <div class="slides">
+      {slides.map((slide, index) => (
+        <div class="slide">
+          <div class="div-title">
+            <h2>{slide.title}</h2>
+          </div>
+          <p>{slide.content}</p>
+        </div>
+      ))}
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const slider = document.getElementById("{id}");
+    let slideIndex = 0;
+    const slides = slider.querySelectorAll<HTMLElement>(".slide");
+    const prevButton = slider.querySelector(".prev") as HTMLElement;
+    const nextButton = slider.querySelector(".next");
+
+    function showSlides(index) {
+      if (index >= slides.length) {
+        slideIndex = 0;
+      } else if (index < 0) {
+        slideIndex = slides.length - 1;
+      } else {
+        slideIndex = index;
+      }
+
+      slides.forEach(slide => (slide.style.display = "none"));
+      slides[slideIndex].style.display = "block";
+    }
+
+    prevButton.addEventListener("click", () => showSlides(slideIndex - 1));
+    nextButton.addEventListener("click", () => showSlides(slideIndex + 1));
+
+    showSlides(slideIndex);
+  });
+</script>
