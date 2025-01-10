@@ -439,35 +439,3 @@ html.light {
     }
 
 }
-
-/*@media only screen and (max-width: 600px) {
-    body {
-        width: 99vw;
-    }
-
-    .navbar__menu {
-        margin: 2.5em auto;
-        text-align: center;
-    }
-
-    .navbar__menu > a {
-        margin: 0 7px;
-    }
-
-    .skills__img {
-        height: 30px;
-        width: 30px;
-        margin: 8px 1px;
-    }
-
-    .badge__list {
-        font-size: 0.9rem;
-        text-indent: 0;
-    }
-
-    .pro-img {
-        height: auto;
-        width: 350px;
-    }
-} */
-
