@@ -120,19 +120,19 @@ small, li {
 }
 
 /* Gifs */
-.gif {
-    /* padding-top: 100px; */
+/*.gif {
+    padding-top: 100px; 
     margin: auto auto;
     height: 200px;
-}
+} */
 
 /* TODO: make own styles for gifs in projects and experience */
 .gif-projects {
-    margin: 6rem auto 0;
+    margin: 8rem auto 0;
 }
 
 .gif-exp {
-    margin: 4rem auto 0;
+    margin: 5rem auto 0;
 }
 
 /* Badge */
