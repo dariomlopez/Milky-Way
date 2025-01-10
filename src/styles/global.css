@@ -85,7 +85,6 @@ small, li {
 .navbar__title img {
     width: 100px;
     height: 100px;
-    margin: 0 1em;
 }
 
 .navbar__menu {
@@ -433,33 +432,15 @@ html.light {
 /* Media Query */
 
 @media only screen and (max-width: 700px) {
-    body {
-        width: 99vw;
-    }
-
-    .heroheader {
-        margin: 10rem 0 0 0;
-    }
-
-    .navbar {
-        margin: 10px auto;
-    }
 
     .navbar__title img {
-        display: none;
+        width: 70px;
+        height: 70px;
     }
 
-    .navbar__menu {
-        margin: 2.5em auto;
-        text-align: center;
-    }
-
-    .navbar__menu > a {
-        margin: 2px 7px;
-    }
 }
 
-@media only screen and (max-width: 600px) {
+/*@media only screen and (max-width: 600px) {
     body {
         width: 99vw;
     }
@@ -488,5 +469,5 @@ html.light {
         height: auto;
         width: 350px;
     }
-}
+} */
 
