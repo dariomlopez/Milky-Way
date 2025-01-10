@@ -4,6 +4,12 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 const allProjects = await getCollection("projects");
 const pageTitle = "Experience";
+
+// Import experience content
+const vassContent = await import('../content/experience/vass.md?raw').then(mod => mod.default);
+const adeccoContent = await import('../content/experience/adecco.md?raw').then(mod => mod.default);
+const onetsContent = await import('../content/experience/onets.md?raw').then(mod => mod.default);
+const accentureContent = await import('../content/experience/accenture.md?raw').then(mod => mod.default);
 ---
 <Layout pageTitle={pageTitle}>
     <div class="gif-exp">
@@ -11,45 +17,37 @@ const pageTitle = "Experience";
     </div>
     <h2>Experience</h2>
     <ul role="list" class="link-card-exp">
-        <!-- {allProjects.map((card) => <Card 
-            url={`/projects/${card.slug}/`} 
-            image={card.data.image.url} 
-            title={card.data.title} 
-            body={card.data.description}
-            stack={card.data.stack}
-        />)} -->
         <Card
             url="https://vasscompany.com/"
             image="/expImages/VASS.svg"
             title="Back-End Developer @ VASS"
             dates="June 2024 - present"
-            body="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci"
-            stack="Python, CSS, Javascript, una, frase, muy, larga, con, comas"
+            body={vassContent}
+            stack="Python, SQL, Docker, Jenkins, Rundeck"
         />
         <Card
             url="https://medium.com/"
             image="/expImages/adecco.png"
-            title="Cybersecurity Technician || Final course project @ Fundación Adecco"
-            dates=""
-            body="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci"
-            stack="Python, CSS, Javascript, una, frase, muy, larga, con, comas"
+            title="Cybersecurity Technician @ Fundación Adecco"
+            dates="March 2024 - May 2024"
+            body={adeccoContent}
+            stack="Python, Linux, Security Tools"
         />
         <Card
             url="https://medium.com/"
             image="/blog-post.webp"
             title="Back-End Developer @ ONETS S.L."
             dates="October 2023 - December 2023"
-            body="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci"
-            stack="Python, CSS, Javascript, una, frase, muy, larga, con, comas"
+            body={onetsContent}
+            stack="Python, Django, PostgreSQL"
         />
         <Card
             url="https://medium.com/"
             image="/expImages/accenture.jpg"
             title="Content analyst and User Support @ Accenture"
             dates="March 2020 - February 2023"
-            body="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci"
-            stack="Python, CSS, Javascript, una, frase, muy, larga, con, comas"
+            body={accentureContent}
+            stack="Technical Support, Content Management, Analytics"
         />
     </ul>
 </Layout>
-

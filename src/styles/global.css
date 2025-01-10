@@ -49,7 +49,7 @@ h2 {
     text-decoration-thickness: 4px;
     text-underline-offset: 6px;
     font-size: 2.1rem;
-    /* margin-bottom: 0; */
+    margin-bottom: 40px;
 }
 
 /* paragraphs */
@@ -83,15 +83,19 @@ small, li {
 }
 
 .navbar__title img {
-    width: 100px;
-    height: 100px;
+    width: 8rem;
+    height: 8rem;
+    margin: auto 0;
 }
 
 .navbar__menu {
     font-family: var(--body);
     font-size: 1.5rem;
-    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    /* gap: 1em; */
     justify-content: space-between;
+    /* text-align: center; */
     /* align-items: center; */
 }
 
@@ -101,7 +105,7 @@ small, li {
 }
 
 .navbar__menu a {
-    margin: 1em 15px;
+    margin: auto 15px;
 }
 
 .navbar__menu > a:hover, .navbar__menu > a:focus {
@@ -172,7 +176,6 @@ small, li {
 .card {
     list-style: none;
     display: flex;
-    background-size: 400%;
     padding: 20px;
 }
 
@@ -199,10 +202,13 @@ small, li {
 
 .card__txt {
     font-size: 1.5rem;
-    line-height: 1.5;
+    /* line-height: 1.8; */
     text-indent: 0;
     text-align: center;
-    margin: 0.5rem 0 0;
+    margin: 0.5rem auto;
+    white-space: pre-line;
+    max-width: 80%;
+    padding: 0 2rem;
 }
 
 .card__link:hover {
@@ -429,13 +435,37 @@ html.light {
     color: var(--text-link);
 }
 
+#themeToggle{
+    margin: 15px;
+}
+
 /* Media Query */
 
 @media only screen and (max-width: 700px) {
-
     .navbar__title img {
         width: 70px;
         height: 70px;
     }
 
+    .link-card-exp {
+        grid-template-columns: 1fr;
+    }
+
+    .card__txt {
+        font-size: 1.2rem;
+        max-width: 95%;
+        padding: 0 1rem;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+    }
+
+    .card__title {
+        font-size: 1.5rem;
+    }
+
+    .navbar__menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        /* gap: 1em; */
+    }
 }
