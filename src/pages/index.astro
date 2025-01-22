@@ -1,7 +1,7 @@
 ---
 import Contact from '../components/Contact.astro';
 import Layout from '../layouts/Layout.astro';
-const pageTitle = "Darío Maroto's Portfolio'";
+const pageTitle = "Darío Maroto's Portfolio";
 ---
 <Layout pageTitle={pageTitle}>
     <div class="heroheader">
@@ -18,24 +18,27 @@ const pageTitle = "Darío Maroto's Portfolio'";
     </div>
     <Contact />
     <div id="about">   
-    <h2>About me</h2>
-    <p>
-    About starts
-    </p>
-    <p>
-    About continues
-    </p>
+        <h2>About me</h2>
+        <div class="about-content">
+            <p>
+                Back-End Developer with experience in Python, ETL, DevOps, and Cybersecurity. My work focuses on writing clean and efficient code, automating processes, and ensuring data integrity. Key skills: Python, ETL's (Extract, Transform, Load), Jenkins y Rundeck (CI/CD), Docker.
+            </p>
+        </div>
     </div>
 <!-- write a div -->
     <div class="skills">
         <h2>Skills</h2>
         <div class="skills center">
             <img class="skills__img" width="46" height="46" alt="PYTHON" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"/>
+            <img class="skills__img" width="46" height="46" alt="SQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" />
+            <img class="skills__img" width="50" height="50" alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" />
+            <img class="skills__img" width="46" height="46" alt="Jenkins" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" />
             <img class="skills__img" width="46" height="46" alt="HTML" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"/>
             <img class="skills__img" width="46" height="46" alt="CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"/>
             <img class="skills__img" width="46" height="46" alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"/>
-            <img class="skills__img" width="46" height="46" alt="Bootstrap" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"/>
             <img class="skills__img" width="46" height="46" alt="Git" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"/>
+            
+          
         </div>
     </div>
     <!-- <div class="interests">
@@ -48,4 +51,3 @@ const pageTitle = "Darío Maroto's Portfolio'";
         </p>
     </div> -->
 </Layout>
-

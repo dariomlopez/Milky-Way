@@ -2,7 +2,26 @@
 import { getCollection } from "astro:content";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
+const experienceImages: {[key: string]: string} = {
+    "VASS": "/expImages/VASS.svg",
+    "Accenture": "/expImages/accenture.jpg",
+    "Fundación Adecco": "/expImages/adecco.png",
+    "ONETS S.L.": "/blog-post.webp"
+};
+
+function parseDateString(dateString: string): Date {
+    // Formato: "Month YYYY - Month YYYY" o "Month YYYY - present"
+    const parts = dateString.split(' - ');
+    const endDate = parts[1] === 'present' ? new Date() : new Date(`1 ${parts[1]}`);
+    return endDate;
+}
+
 const allProjects = await getCollection("projects");
+const allExperiences = await getCollection("experience")
+    .then(experiences => experiences.sort((a, b) => 
+        parseDateString(b.data.dates).getTime() - parseDateString(a.data.dates).getTime()
+    ));
 const pageTitle = "Experience";
 
 // Import experience content
@@ -17,37 +36,15 @@ const accentureContent = await import('../content/experience/accenture.md?raw').
     </div>
     <h2>Experience</h2>
     <ul role="list" class="link-card-exp">
-        <Card
-            url="https://vasscompany.com/"
-            image="/expImages/VASS.svg"
-            title="Back-End Developer @ VASS"
-            dates="June 2024 - present"
-            body={vassContent}
-            stack="Python, SQL, Docker, Jenkins, Rundeck"
-        />
-        <Card
-            url="https://medium.com/"
-            image="/expImages/adecco.png"
-            title="Cybersecurity Technician @ Fundación Adecco"
-            dates="March 2024 - May 2024"
-            body={adeccoContent}
-            stack="Python, Linux, Security Tools"
-        />
-        <Card
-            url="https://medium.com/"
-            image="/blog-post.webp"
-            title="Back-End Developer @ ONETS S.L."
-            dates="October 2023 - December 2023"
-            body={onetsContent}
-            stack="Python, Django, PostgreSQL"
-        />
-        <Card
-            url="https://medium.com/"
-            image="/expImages/accenture.jpg"
-            title="Content analyst and User Support @ Accenture"
-            dates="March 2020 - February 2023"
-            body={accentureContent}
-            stack="Technical Support, Content Management, Analytics"
-        />
+        {allExperiences.map((experience) => (
+            <Card
+                url={experience.data.website || "https://medium.com/"}
+                image={experienceImages[experience.data.company] || "/work-icon.svg"}
+                title={`${experience.data.title} @ ${experience.data.company}`}
+                dates={experience.data.dates}
+                body={experience.body}
+                stack={experience.data.stack?.join(", ") || "Various Technologies"}
+            />
+        ))}
     </ul>
 </Layout>

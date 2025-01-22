@@ -11,7 +11,7 @@ worksImage2:
     url: '/image-2.webp'
     alt: 'second image of your project.'
 platform: Web
-stack: Astro, JavaScript
+stack: ['Astro', 'JavaScript']
 website: https://astro-milky-way.netlify.app/
 github: https://github.com/ttomczak3/Milky-Way
 ---

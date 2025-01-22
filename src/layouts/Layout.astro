@@ -40,11 +40,42 @@ const { pageTitle } = Astro.props;
                 } else {
                     document.documentElement.classList.remove("light");
                 }
-              }
+            }
             
             colorMode();
             document.addEventListener('astro:after-swap', colorMode);
+
+            // Script mejorado para manejar el scroll de About me
+            function scrollToAbout() {
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                    aboutSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            }
+
+            // Manejar clics en el enlace de About me
+            document.addEventListener('click', (e) => {
+                const aboutLink = (e.target as HTMLElement).closest('a[href*="#about"]');
+                if (aboutLink) {
+                    e.preventDefault();
+                    
+                    // Si estamos en otra página, navegar primero
+                    if (!window.location.pathname.includes('/index.html')) {
+                        window.location.href = '/index.html#about';
+                    } else {
+                        // Si ya estamos en index.html, hacer scroll
+                        scrollToAbout();
+                    }
+                }
+            });
+
+            // Si la URL ya contiene #about, hacer scroll
+            if (window.location.hash === '#about') {
+                setTimeout(scrollToAbout, 100);
+            }
         </script>
 	</body>
 </html>
-
