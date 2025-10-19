@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import CardEdu from "../components/CardEdu.astro";
+const pageTitle = "Education";
+
+---
+<Layout pageTitle={pageTitle}>
+    
+    <h2 class="link-card-education-header">Education</h2>
+    <ul role="list" class="link-card-education">
+        <CardEdu
+            institution=""
+            title="Seguridad informática IFCT0109"
+            dates="may 2025 - present"
+            description="Especialización en astrofísica y cosmología."
+        />
+        <CardEdu
+            institution="Fundación Adecco"
+            title="Bootcamp"
+            dates="2024"
+            description="Aprendizaje automático aplicado a datos astronómicos."
+        />
+        <CardEdu
+            institution=""
+            title="Computer System Programming || Programación de sistemas informáticos IFCT0609"
+            dates="2023"
+            description=""
+        />
+    </ul>

@@ -17,7 +17,6 @@ function parseDateString(dateString: string): Date {
     return endDate;
 }
 
-const allProjects = await getCollection("projects");
 const allExperiences = await getCollection("experience")
     .then(experiences => experiences.sort((a, b) => 
         parseDateString(b.data.dates).getTime() - parseDateString(a.data.dates).getTime()

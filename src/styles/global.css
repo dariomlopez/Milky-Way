@@ -79,7 +79,7 @@ small, li {
     align-items: center;
     background: transparent;
     backdrop-filter: blur(15px);
-    
+    box-sizing: border-box;
 }
 
 .navbar__title img {
@@ -177,6 +177,7 @@ small, li {
     list-style: none;
     display: flex;
     padding: 20px;
+    flex-direction: column;
 }
 
 .card__link {
@@ -246,6 +247,19 @@ small, li {
     width: 60%;
 }
 
+.link-card-education-header {
+    margin-top: 10rem;
+}
+
+.link-card-education {
+    align-self: stretch;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+    padding: 0;
+}
+
 /* Button */
 .btn {
     text-align: center;
@@ -284,9 +298,6 @@ small, li {
 }
 
 /* Items */
-/* .center {
-    text-align: center;
-} */
 
 .pro-img {
     border-radius: 16px;

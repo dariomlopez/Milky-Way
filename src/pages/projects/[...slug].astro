@@ -15,11 +15,14 @@ type ProjectEntry = {
   data: {
     title: string;
     description: string;
-    image: { url: string; alt: string };
-    platform: string;
-    stack: string;
-    website: string;
-    github: string;
+    image?: { url?: string; src?: string; alt?: string };
+    platform?: string;
+    stack: string[] | string;
+    website?: string;
+    github?: string;
+    institution?: string;
+    dates?: string;
+    [key: string]: any;
   };
   render: () => Promise<{ Content: any }>; // Ensure the render method returns Content
 };

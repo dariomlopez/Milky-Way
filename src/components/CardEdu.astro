@@ -1,33 +1,27 @@
 ---
-interface Education {
+interface Props {
   title: string;
   institution: string;
-  period: string;
+  dates: string;
   description: string;
 }
 
-const EDUCATION: Education[] = [
-  {
-    title: "Título de Ejemplo",
-    institution: "Universidad/Centro",
-    period: "2019 - 2023",
-    description: "Descripción breve de los estudios"
-  }
-];
+const { title, institution, dates, description } = Astro.props;
+
 ---
 
-<section class="education" id="education">
-  <h2>Formación</h2>
-  <div class="container">
-    {EDUCATION.map(({ title, institution, period, description }) => (
-      <article class="card">
-        <header>
-          <h3>{title}</h3>
-          <p class="period">{period}</p>
-        </header>
-        <p class="institution">{institution}</p>
-        <p class="description">{description}</p>
-      </article>
-    ))}
-  </div>
-</section>
+<li class="card">
+        <h3 class="card__title">
+            {title}
+        </h3>
+        <h3 class="card__dates">
+            {dates}
+        </h3>
+        <p class="card__txt">
+            {institution}
+        </p>
+        <p>
+            {description}
+        </p>
+    </a>
+</li>
